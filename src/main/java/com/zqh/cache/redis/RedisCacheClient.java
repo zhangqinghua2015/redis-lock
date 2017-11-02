@@ -250,25 +250,6 @@ public class RedisCacheClient implements CacheClient {
             e.printStackTrace();
             return false;
         }
-        /*try {
-            String actureKey = generateKey(key, namespace);
-            Object actureValue = value;
-
-            RedisScript<Boolean> script;
-            Object[] argv;
-            if (timeToLive > 0) {
-                script = new DefaultRedisScript<>(PUT_IF_ABSENT_EX, Boolean.class);
-                argv = new Object[]{actureKey, actureValue, "", String.valueOf(timeToLive)};
-                argv[2] = TimeUnit.SECONDS.equals(timeUnit) ? "EXPIRE" : "PEXPIRE";
-            } else {
-                script = new DefaultRedisScript<>(PUT_IF_ABSENT, Boolean.class);
-                argv = new Object[]{actureKey, actureValue};
-            }
-
-            return (boolean) stringRedisTemplate.execute(script, null, argv);
-        } catch(Exception e) {
-            e.printStackTrace();
-        }*/
     }
 
     @Override
