@@ -45,7 +45,7 @@ public class RedisLock implements Lock {
             @Override
             public Object doInRedis(RedisConnection connection) throws DataAccessException {
                 try {
-                    return connection.set(actureName(NAME_SPACE, name), actureValue(), Expiration.seconds(timeout), RedisStringCommands.SetOption.SET_IF_ABSENT);
+                    return connection.set(actureName(generaterName(NAME_SPACE, name)), actureValue(), Expiration.seconds(timeout), RedisStringCommands.SetOption.SET_IF_ABSENT);
                 } catch(Exception e) {
                     e.printStackTrace();
                     return false;
